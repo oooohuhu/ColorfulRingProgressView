@@ -1,2 +1,30 @@
 # ColorfulRingProgressView
 圆环自带动画进度条
+首先在布局中
+    <com.asuka.android.asukaandroid.demo.views.ColorfulRingProgressView
+                        android:id="@+id/project_schedul_crpv1"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:interpolator="@android:anim/decelerate_interpolator"
+                        hbw:bgColor="#282b37"
+                        hbw:fgColorEnd="#ff2317"
+                        hbw:fgColorStart="#ff2317"
+                        hbw:mTitleText="0"
+                        hbw:mTitleTextColor="#ffffff"
+                        hbw:mTitleTextSize="20sp"
+                        hbw:percent="0"
+                        hbw:startAngle="0"
+                        hbw:strokeWidth="5dp" />
+
+那在代码中如何使用呢！
+请直接看代码吧！
+  @ViewInject(R.id.project_schedul_crpv1)
+    private ColorfulRingProgressView project_schedul_crpvl;
+//a为浮点型数值
+ project_schedul_crpvl.setPercent(a);//设置进度条的进度，最大值为100
+        project_schedul_crpvl.setmTitleText(a+"");//设置百分比，最大值为100
+        anim1 = ObjectAnimator.ofFloat(project_schedul_crpvl, "percent", 0, (project_schedul_crpvl).getPercent());//设置动画
+        anim1.setInterpolator(new LinearInterpolator());
+        anim1.setDuration(2000);
+        anim1.start();
+//也可以点击进行以上动画
